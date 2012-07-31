@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+#wrap {
+	font-family:Arial, Helvetica, sans-serif; 
+	font-size:13px;
+	width:485px;
+	}
+
+#mymenu {float:right;}
+
+#onroundbox {
+	text-align:center; 
+	background-color:#FFFF00; 
+	padding:10px;
+	}
+
+.mt_table {
+	border-collapse:collapse;
+	width:470px;
+	border:1px solid black;
+	}
+
+.mt_table tr td, .mt_table tr th {
+	border:1px solid black;
+	padding:2px;
+	}
+
+.td_tourney {
+    background-color:#c8ff00; 
+	font-weight:bold; 
+	font-size:larger;
+	}
+
+
+.screenname {font-weight:bold;}

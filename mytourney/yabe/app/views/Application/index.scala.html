@@ -1,0 +1,79 @@
+@(
+front:Option[(models.Post,models.User,Seq[models.Comment])],
+older:Seq[(models.Post,models.User,Seq[models.Comment])]
+)
+
+@main(title = "Home") {
+
+@front.map { front =>
+
+<div class="post">
+    <h2 class="post-title">
+        <a href="#">@front._1.title</a>
+    </h2>
+    <div class="post-metadata">
+        <span class="post-author">by @front._2.fullname</span>
+                <span class="post-date">
+                    @front._1.postedAt.format("MMM dd")
+                </span>
+                <span class="post-comments">
+                    &nbsp;|&nbsp;
+
+                    @if(front._3) {
+                        @front._3.size comments,
+                        latest by @front._3(0).author
+                    } else {
+                        no comments
+                    }
+
+                </span>
+    </div>
+    <div class="post-content">
+        @Html(front._1.content.replace("\n", "<br>"))
+    </div>
+</div>
+
+@Option(older).filterNot(_.isEmpty).map { posts =>
+
+<div class="older-posts">
+    <h3>Older posts <span class="from">from this blog</span></h3>
+
+    @posts.map { post =>
+    <div class="post">
+        <h2 class="post-title">
+            <a href="@action(controllers.Application.show(post._1.id()))">
+                @post._1.title
+            </a>
+        </h2>
+        <div class="post-metadata">
+                           <span class="post-author">
+                               by @post._2.fullname
+                           </span>
+                           <span class="post-date">
+                               @post._1.postedAt.format("dd MMM yy")
+                           </span>
+            <div class="post-comments">
+                @if(post._3) {
+                @post._3.size comments,
+                latest by @post._3(0).author
+                } else {
+                no comments
+                }
+            </div>
+        </div>
+    </div>
+    }
+
+</div>
+
+}
+
+}.getOrElse {
+
+<div class="empty">
+    There is currently nothing to read here.
+</div>
+
+}
+
+}

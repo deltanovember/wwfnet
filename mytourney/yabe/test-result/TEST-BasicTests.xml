@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="0.147" errors="0" skipped="0" tests="5" name="BasicTests">
+  <testcase classname="BasicTests" name="should connect a User" time="0.033">
+      </testcase>
+  <testcase classname="BasicTests" name="should create a Post" time="0.013">
+      </testcase>
+  <testcase classname="BasicTests" name="should retrieve Posts with author" time="0.009">
+      </testcase>
+  <testcase classname="BasicTests" name="should support Comments" time="0.02">
+      </testcase>
+  <testcase classname="BasicTests" name="should load a complex graph from Yaml" time="0.072">
+      </testcase>
+</testsuite>

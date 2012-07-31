@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+        <style type="text/css">
+body{
+  font-family: "Bitstream Vera Sans", Verdana, Futura, sans-serif;
+  font-size: 12px;
+  margin: 0px;
+  background-color: #edf6ff;
+  text-align:center;
+}
+
+div.box{
+  border: 2px solid #D1CDC3;
+  background-color: #E9E7E2;
+  width: 300px;
+  text-align:center;
+}
+
+div.box a:link,
+div.box a:visited{
+  font-size: 11px;
+  color: #1775C1;
+}
+
+div.box a:hover,
+div.box a:active{
+  color: #5EACEC;
+}
+
+div.box h1{
+  background-color: #5EACEC;
+  color: #fff;
+  font-size: 13px;
+  padding: 2px 4px 2px 4px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.box p{
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding: 2px 4px 2px 4px;
+}
+
+div.box table
+{
+  width: 100%;
+  border: 0 none;
+}
+
+div.box table tr{
+	vertical-align: middle;
+}
+
+div.box table tr td{
+  text-align: right;
+  padding-left: 3px;
+  padding-right: 3px;
+  white-space: nowrap;
+}
+
+div.box table tr.message td{
+	font-size: 11px;
+	text-align: left;
+   white-space: normal;
+}
+
+div.box table tr.message td div{
+   margin-bottom: 10px;
+	background-color: #FFFFE1;
+	color: InfoText;
+	border: 1px solid GrayText;
+   padding: 4px 6px 4px 6px;
+}
+
+div.box table tr.message td div.error{
+  color: red;
+	font-weight: bold;
+}
+
+div.box table tr.message td div.error ul{
+  padding-left: 14px;
+}
+
+div.box table tr.message td div.error ul li{
+  margin-top: 10px;
+}
+
+div.box table tr.message td div.error ul ul li{
+  margin-top: 3px;
+}
+
+div.box table tr.mandatory td.title{
+	font-weight: bold;
+}
+
+div.box table tr.error td.title{
+  color: red;
+  font-weight: bold;
+}
+
+div.box table tr td.title{
+  font-size: 11px;
+  text-align: left;
+}
+
+div.box table tr td input.text{
+  border: 1px solid #81807D;
+  padding: 2px 3px 2px 3px;
+  font-size: 12px;
+  width: 125px;
+}
+
+div.box table tr td input.text:focus{
+	border: 1px solid #5EACEC;
+}
+
+div.box table tr td input[readonly]{
+	border: 1px solid #81807D !important;
+	background-color: #E0DDD6;
+}
+
+
+div.box table tr td input.submit{
+  border: 1px solid #81807D;
+  background-color: #F4F3F0;
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+div.box table tr td input.submit:hover{
+	border: 1px solid #5EACEC;
+	background-color: ButtonHighlight;
+}
+</style>
+    </head>
+
+<body>
+<a name="top"></a>
+<div align="center">
+
+
+<!--TOP TABLE starts-->
+
+<table border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr valign="top">
+
+<td><div align="left">
+
+<script language="Javascript" type="text/javascript">
+
+function checkform() {
+  for (i=0;i<fieldstocheck.length;i++) {
+    if (eval("document.subscribeform.elements['"+fieldstocheck[i]+"'].type") == "checkbox") {
+      if (document.subscribeform.elements[fieldstocheck[i]].checked) {
+      } else {
+        alert("Please enter your "+fieldnames[i]);
+        eval("document.subscribeform.elements['"+fieldstocheck[i]+"'].focus()");
+        return false;
+      }
+    }
+    else {
+      if (eval("document.subscribeform.elements['"+fieldstocheck[i]+"'].value") == "") {
+        alert("Please enter your "+fieldnames[i]);
+        eval("document.subscribeform.elements['"+fieldstocheck[i]+"'].focus()");
+        return false;
+      }
+    }
+  }
+  for (i=0;i<groupstocheck.length;i++) {
+    if (!checkGroup(groupstocheck[i],groupnames[i])) {
+      return false;
+    }
+  }
+  
+  return true;
+}
+
+var fieldstocheck = new Array();
+var fieldnames = new Array();
+function addFieldToCheck(value,name) {
+  fieldstocheck[fieldstocheck.length] = value;
+  fieldnames[fieldnames.length] = name;
+}
+var groupstocheck = new Array();
+var groupnames = new Array();
+function addGroupToCheck(value,name) {
+  groupstocheck[groupstocheck.length] = value;
+  groupnames[groupnames.length] = name;
+}
+
+function compareEmail()
+{
+  return (document.subscribeform.elements["email"].value == document.subscribeform.elements["emailconfirm"].value);
+}
+function checkGroup(name,value) {
+  option = -1;
+  for (i=0;i<document.subscribeform.elements[name].length;i++) {
+    if (document.subscribeform.elements[name][i].checked) {
+      option = i;
+    }
+  }
+  if (option == -1) {
+    alert ("Please enter your "+value);
+    return false;
+  }
+  return true;
+}
+
+</script>
+<div class="box"><h1>Get Tournament Notifications</h1>
+<form method="post" action="http://www.wordswithfriends.net/lists/?p=subscribe" name="subscribeform">
+    <table border="0">
+ <tr class="high mandatory"><td class="title">Email</td>
+  <td><input name="email" value="" size="30" type="text">
+  <script language="Javascript" type="text/javascript">addFieldToCheck("email","Email");</script></td></tr>
+      <tr class="high  mandatory"><td class="title">Firstname</td><td>
+            <input name="attribute2" class="attributeinput" size="30" value="" type="text"><script language="Javascript" type="text/javascript">addFieldToCheck("attribute2","Firstname");</script></td></tr>
+      <tr><td colspan="2" class="title">
+        <input name="htmlemail" value="1" type="checkbox" checked>
+        I prefer to receive emails in HTML format</td></tr>
+
+
+</table>
+    <input name="list[5]" value="signup" type="hidden">
+    <input name="listname[5]" value="tournament announcements" type="hidden">
+    <div style="display: none;"><input name="VerificationCodeX" value="" size="20" type="text"></div>
+   <table><tr style="vertical-align:bottom">
+            <td style="text-align:left"> <a href="http://wordswithfriends.net/lists/?p=unsubscribe&amp;id=1">Unsubscribe</a></td>
+        <td> <input name="subscribe" value="Subscribe" class="submit" style="float:right" onclick="return checkform();" type="submit"></td>
+        </tr></table>
+</form>
+    </div>
+   
+</div>
+    
+</td>
+
+</tr>
+
+
+</tbody></table>
+<!--TOP TABLE ends-->
+
+
+
+</div>
+
+     
+
+
+</body></html>
