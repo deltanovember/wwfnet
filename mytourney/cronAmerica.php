@@ -349,16 +349,7 @@ for ($i=0; $i < count($final) - 1; $i+=2) {
 
         array_splice($final, $i + 1, 0, array($final[$row_counter]));
         array_splice($final, $row_counter+1, count($final), array_slice($final, $row_counter + 2));
-        //array_splice($final, $row_counter, count($final), array('5'));
-        //
-        //unset($final[$row_counter + 1]);
-       // $temp = $final[$row_counter];
-       // $final[$row_counter] = $final[$i + 1];
-       // $final[$i + 1] = $temp;
 
-       // $input = array(0,1,2,3,4,5,6,7);
-       // array_splice($input, 2, 0, array($input[5]));
-       // unset($input[6]);
 
     }
 
